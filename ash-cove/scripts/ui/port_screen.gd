@@ -16,7 +16,7 @@ func setup(town_id: String) -> void:
 
 func _ready() -> void:
 	var bg := ColorRect.new()
-	bg.color = Color(UI.BG, 0.97)
+	bg.color = UI.BG
 	bg.set_anchors_preset(PRESET_FULL_RECT)
 	bg.mouse_filter = MOUSE_FILTER_STOP
 	add_child(bg)

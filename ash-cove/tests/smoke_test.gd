@@ -140,6 +140,9 @@ func _ready() -> void:
 	await get_tree().process_frame
 	check(true, "encounter dialog")
 
+	print("== Sailing (end to end)")
+	await _test_voyage()
+
 	print("\n%s (%d failures)" % ["PASSED" if _fails == 0 else "FAILED", _fails])
 	get_tree().quit(1 if _fails > 0 else 0)
 
@@ -152,3 +155,37 @@ func _poke_world_map(wm: Node) -> void:
 	wm._show_menu_popup()
 	wm._close_popup()
 	wm._deselect()
+
+
+func _test_voyage() -> void:
+	GameState.new_game(TEST_SLOT, "navigator", "Sailor", "Test Voyager")
+	GameState.gold = 2000
+	GameData.balance.travel.seconds_per_day = 0.02
+	GameData.balance.travel.base_encounter_chance = 5.0   # force an encounter every day
+	var wm: Node = load(SceneRouter.WORLD_MAP).instantiate()
+	add_child(wm)
+	await get_tree().process_frame
+	wm._close_port()
+	var dest := "goldreach"
+	var day0 := GameState.day
+	var expect_days := GameState.travel_days(GameData.find_path(GameState.location, dest).length)
+	wm._set_sail(dest)
+	var encounters := 0
+	for i in 600:
+		await get_tree().process_frame
+		for c in wm._popup_layer.get_children():
+			if c is EncounterDialog and not c.is_queued_for_deletion():
+				encounters += 1
+				c._act("pay")
+				c.finished.emit()
+				c.queue_free()
+		if GameState.location == dest:
+			break
+	check(GameState.location == dest, "arrived at %s" % dest)
+	check(GameState.day == day0 + expect_days, "voyage took %d days" % expect_days)
+	check(encounters == expect_days - 1, "encounters rolled during voyage (%d)" % encounters)
+	check(SaveManager.has_save(TEST_SLOT), "autosaved on docking")
+	check(wm._port_layer.get_child_count() == 1, "port opened on arrival")
+	check(dest in GameState.stats.towns_visited, "destination marked visited")
+	wm.queue_free()
+	SaveManager.delete_slot(TEST_SLOT)

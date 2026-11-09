@@ -14,7 +14,7 @@ func setup(encounter: Dictionary) -> void:
 
 
 func _ready() -> void:
-	set_anchors_preset(PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(PRESET_FULL_RECT)
 	add_child(UI.dimmer(0.55))
 	var center := CenterContainer.new()
 	center.set_anchors_preset(PRESET_FULL_RECT)

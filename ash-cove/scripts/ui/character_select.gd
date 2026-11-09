@@ -12,7 +12,8 @@ var _start_btn: Button
 
 
 func _ready() -> void:
-	set_anchors_preset(PRESET_FULL_RECT)
+	theme = UI.theme
+	set_anchors_and_offsets_preset(PRESET_FULL_RECT)
 	var bg := ColorRect.new()
 	bg.color = UI.BG
 	bg.set_anchors_preset(PRESET_FULL_RECT)

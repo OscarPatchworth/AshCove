@@ -5,7 +5,8 @@ var _time := 0.0
 
 
 func _ready() -> void:
-	set_anchors_preset(PRESET_FULL_RECT)
+	theme = UI.theme
+	set_anchors_and_offsets_preset(PRESET_FULL_RECT)
 
 	var center := CenterContainer.new()
 	center.set_anchors_preset(PRESET_FULL_RECT)

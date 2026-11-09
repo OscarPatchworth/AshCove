@@ -18,7 +18,8 @@ var _selected := ""
 
 
 func _ready() -> void:
-	set_anchors_preset(PRESET_FULL_RECT)
+	theme = UI.theme
+	set_anchors_and_offsets_preset(PRESET_FULL_RECT)
 	if not GameState.is_active():
 		GameState.new_game(DEBUG_SLOT, GameData.captains[0].id, GameData.captains[0].name, "Debug Dinghy")
 
@@ -28,6 +29,11 @@ func _ready() -> void:
 	map_view.town_clicked.connect(_on_town_clicked)
 	map_view.empty_clicked.connect(_deselect)
 	add_child(map_view)
+
+	var legend := UI.label("S = Shipyard   T = Tavern   Red routes are more dangerous", 20, Color(UI.TEXT, 0.6))
+	legend.position = Vector2(24, TOP_BAR_H + 12)
+	legend.mouse_filter = MOUSE_FILTER_IGNORE
+	add_child(legend)
 
 	_build_side_panel()
 	_build_log()
@@ -189,7 +195,9 @@ func _fill_side_panel(id: String, path: Dictionary) -> void:
 			var nl := UI.label(g.name, 22)
 			nl.custom_minimum_size.x = 260
 			grid.add_child(nl)
-			grid.add_child(UI.label(str(known.buy.get(g.id, "-")), 22, UI.GOLD))
+			var bl := UI.label(str(known.buy.get(g.id, "-")), 22, UI.GOLD)
+			bl.custom_minimum_size.x = 80
+			grid.add_child(bl)
 			# Highlight sell prices that beat what you'd pay at your current port.
 			var sell_v := int(known.sell.get(g.id, 0))
 			var col := UI.TEXT
