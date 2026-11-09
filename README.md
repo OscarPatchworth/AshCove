@@ -30,6 +30,8 @@ Map coordinates use a 1920×1080 space. Saves made before you add towns or goods
 
 ## Code layout
 
+See [docs/diagrams.md](docs/diagrams.md) for Mermaid diagrams of the data, the systems and the gameplay loop.
+
 ```
 ash-cove/
   scripts/autoload/   GameData (reads JSON), GameState (the current run), SaveManager, UI (theme + widgets), SceneRouter
