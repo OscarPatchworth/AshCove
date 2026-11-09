@@ -1,0 +1,91 @@
+{
+	"_comment": "Placeholder fantasy world. Coordinates are in a 1920x1080 map space. produces = cheap here, demands = expensive here. danger (0-1) scales the daily encounter chance on a route. Routes may list 'via' waypoints to bend around land.",
+	"start_town": "ash_cove",
+	"islands": [
+		{ "name": "Varn",       "center": [420, 560],  "radius": [300, 380], "seed": 11 },
+		{ "name": "Elyra",      "center": [1500, 420], "radius": [320, 330], "seed": 23 },
+		{ "name": "Mist Isle",  "center": [950, 165],  "radius": [115, 80],  "seed": 5 },
+		{ "name": "Coral Isles","center": [1095, 910], "radius": [125, 80],  "seed": 42 },
+		{ "name": "Ember Isle", "center": [1520, 935], "radius": [135, 90],  "seed": 7 }
+	],
+	"towns": [
+		{
+			"id": "ash_cove", "name": "Ash Cove", "pos": [652, 800],
+			"desc": "A soot-streaked harbour in the shadow of a sleeping volcano. Home.",
+			"produces": ["obsidian", "fish"], "demands": ["grain", "timber", "cloth"],
+			"shipyard": true, "tavern": true
+		},
+		{
+			"id": "highmoor", "name": "Highmoor", "pos": [575, 228],
+			"desc": "Windswept mining town where the sheep outnumber the miners.",
+			"produces": ["iron", "cloth"], "demands": ["wine", "fruit"],
+			"shipyard": false, "tavern": true
+		},
+		{
+			"id": "thornwick", "name": "Thornwick", "pos": [718, 490],
+			"desc": "Forest port. Every street smells of sawdust and pine tar.",
+			"produces": ["timber", "grain"], "demands": ["obsidian", "fish"],
+			"shipyard": true, "tavern": false
+		},
+		{
+			"id": "saltmarsh", "name": "Saltmarsh", "pos": [262, 895],
+			"desc": "Fishing villages on stilts above the reeds.",
+			"produces": ["fish", "grain"], "demands": ["iron", "spices"],
+			"shipyard": false, "tavern": true
+		},
+		{
+			"id": "mistholm", "name": "Mistholm", "pos": [950, 245],
+			"desc": "Herbalists' isle, forever wrapped in silver fog.",
+			"produces": ["elixir"], "demands": ["fruit", "cloth", "wine"],
+			"shipyard": false, "tavern": true
+		},
+		{
+			"id": "goldreach", "name": "Goldreach", "pos": [1182, 365],
+			"desc": "Gilded capital of Elyra. Rich buyers, richer taxes.",
+			"produces": ["cloth", "wine"], "demands": ["obsidian", "elixir", "spices"],
+			"shipyard": true, "tavern": true
+		},
+		{
+			"id": "frostpeak", "name": "Frostpeak", "pos": [1556, 95],
+			"desc": "Icebound northern outpost beneath the iron mountains.",
+			"produces": ["iron", "timber"], "demands": ["grain", "wine", "fish"],
+			"shipyard": false, "tavern": false
+		},
+		{
+			"id": "brightwater", "name": "Brightwater", "pos": [1395, 735],
+			"desc": "Sunny vineyards and orchards spill down to the bay.",
+			"produces": ["fruit", "wine"], "demands": ["iron", "timber"],
+			"shipyard": true, "tavern": true
+		},
+		{
+			"id": "coral_key", "name": "Coral Key", "pos": [1095, 835],
+			"desc": "Spice traders' haven on a ring of coral.",
+			"produces": ["spices", "fruit"], "demands": ["cloth", "iron", "grain"],
+			"shipyard": false, "tavern": true
+		},
+		{
+			"id": "emberfall", "name": "Emberfall", "pos": [1500, 850],
+			"desc": "A smouldering isle where obsidian is dug from cooled lava.",
+			"produces": ["obsidian", "spices"], "demands": ["timber", "fish", "cloth"],
+			"shipyard": false, "tavern": false
+		}
+	],
+	"routes": [
+		{ "a": "ash_cove",   "b": "thornwick",   "danger": 0.2 },
+		{ "a": "ash_cove",   "b": "saltmarsh",   "danger": 0.3, "via": [[470, 1000]] },
+		{ "a": "ash_cove",   "b": "coral_key",   "danger": 0.5 },
+		{ "a": "thornwick",  "b": "highmoor",    "danger": 0.2, "via": [[760, 340]] },
+		{ "a": "highmoor",   "b": "saltmarsh",   "danger": 0.6, "via": [[300, 120], [80, 450], [100, 820]] },
+		{ "a": "highmoor",   "b": "mistholm",    "danger": 0.4 },
+		{ "a": "thornwick",  "b": "mistholm",    "danger": 0.4 },
+		{ "a": "thornwick",  "b": "goldreach",   "danger": 0.5 },
+		{ "a": "mistholm",   "b": "goldreach",   "danger": 0.3 },
+		{ "a": "goldreach",  "b": "frostpeak",   "danger": 0.6, "via": [[1260, 120]] },
+		{ "a": "goldreach",  "b": "brightwater", "danger": 0.3, "via": [[1180, 600]] },
+		{ "a": "frostpeak",  "b": "brightwater", "danger": 0.7, "via": [[1880, 250], [1800, 700]] },
+		{ "a": "brightwater","b": "emberfall",   "danger": 0.5 },
+		{ "a": "brightwater","b": "coral_key",   "danger": 0.3 },
+		{ "a": "coral_key",  "b": "emberfall",   "danger": 0.4 },
+		{ "a": "saltmarsh",  "b": "coral_key",   "danger": 0.5, "via": [[700, 1030]] }
+	]
+}

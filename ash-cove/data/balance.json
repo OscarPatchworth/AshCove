@@ -1,0 +1,44 @@
+{
+	"_comment": "Tuning knobs. Tweak freely while playtesting.",
+	"ship": {
+		"base_cargo": 40,
+		"base_speed": 110,
+		"base_fight": 2
+	},
+	"crew": {
+		"hire_fee": 150,
+		"max_crew": 10,
+		"cargo_per_crew": 2,
+		"speed_per_crew": 0.03,
+		"fight_per_crew": 0.5,
+		"candidates_per_visit": 3
+	},
+	"upgrades": [
+		{ "id": "hold",    "name": "Cargo Hold", "desc": "+20 cargo space per level",     "costs": [300, 700, 1500], "cargo": 20 },
+		{ "id": "sails",   "name": "Sails",      "desc": "+15% speed per level",          "costs": [400, 900, 1800], "speed": 0.15 },
+		{ "id": "cannons", "name": "Cannons",    "desc": "+2 fight strength per level",   "costs": [350, 800, 1600], "fight": 2 }
+	],
+	"market": {
+		"produces_mult": 0.55,
+		"demands_mult": 1.65,
+		"town_variance": 0.12,
+		"buy_spread": 1.06,
+		"sell_spread": 0.94,
+		"impact_per_unit": 0.012,
+		"pressure_decay": 0.82,
+		"pressure_min": -0.6,
+		"pressure_max": 1.0,
+		"noise_step": 0.06,
+		"noise_revert": 0.9,
+		"noise_limit": 0.35,
+		"event_chance": 0.02,
+		"event_size": 0.35
+	},
+	"perish": {
+		"spoil_days": 3
+	},
+	"travel": {
+		"seconds_per_day": 0.55,
+		"base_encounter_chance": 0.12
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"_comment": "Playable captains. 'perks' keys understood by the game: sell_mult, buy_mult, speed_mult, fight_bonus, flee_bonus, cargo_bonus, fresh_bonus, start_crew, start_cannons.",
+	"captains": [
+		{
+			"id": "merchant", "name": "Odessa Vale", "title": "The Merchant",
+			"color": "#e0b04a", "start_gold": 600,
+			"perk_name": "Silver Tongue",
+			"perk_desc": "Sells goods for 10% more and buys for 5% less.",
+			"perks": { "sell_mult": 1.10, "buy_mult": 0.95 }
+		},
+		{
+			"id": "navigator", "name": "Finn Harrow", "title": "The Navigator",
+			"color": "#4ab0e0", "start_gold": 500,
+			"perk_name": "Windreader",
+			"perk_desc": "Ship sails 20% faster and escapes danger more easily.",
+			"perks": { "speed_mult": 1.20, "flee_bonus": 0.15 }
+		},
+		{
+			"id": "privateer", "name": "Kara Blackwell", "title": "The Privateer",
+			"color": "#d9534f", "start_gold": 450,
+			"perk_name": "Sea Wolf",
+			"perk_desc": "+3 fight strength. Starts with 2 crew and a cannon upgrade.",
+			"perks": { "fight_bonus": 3, "start_crew": 2, "start_cannons": 1 }
+		},
+		{
+			"id": "quartermaster", "name": "Bram Tull", "title": "The Quartermaster",
+			"color": "#6fbf73", "start_gold": 500,
+			"perk_name": "Stout Hold",
+			"perk_desc": "+15 cargo space. Perishables stay fresh 2 days longer.",
+			"perks": { "cargo_bonus": 15, "fresh_bonus": 2 }
+		}
+	]
+}

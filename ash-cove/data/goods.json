@@ -1,0 +1,15 @@
+{
+	"_comment": "Tradeable goods. base_price = average mid price. perishable goods keep full value for fresh_days, then lose value to 0 over the spoil window (see balance.json).",
+	"goods": [
+		{ "id": "grain",    "name": "Grain",            "base_price": 12,  "color": "#d9c27a" },
+		{ "id": "fish",     "name": "Fresh Fish",       "base_price": 18,  "color": "#7ab8d9", "perishable": true, "fresh_days": 3 },
+		{ "id": "fruit",    "name": "Sunfruit",         "base_price": 26,  "color": "#f0a040", "perishable": true, "fresh_days": 4 },
+		{ "id": "timber",   "name": "Timber",           "base_price": 30,  "color": "#9a6b3f" },
+		{ "id": "iron",     "name": "Iron Ore",         "base_price": 45,  "color": "#8a8f99" },
+		{ "id": "cloth",    "name": "Wool Cloth",       "base_price": 55,  "color": "#c9b8e8" },
+		{ "id": "wine",     "name": "Wine",             "base_price": 80,  "color": "#a8324a" },
+		{ "id": "spices",   "name": "Spices",           "base_price": 120, "color": "#d9662b" },
+		{ "id": "obsidian", "name": "Obsidian",         "base_price": 150, "color": "#3b3347" },
+		{ "id": "elixir",   "name": "Moonpetal Elixir", "base_price": 260, "color": "#7fe0c8", "perishable": true, "fresh_days": 6 }
+	]
+}

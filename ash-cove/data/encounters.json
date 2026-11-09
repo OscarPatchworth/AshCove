@@ -1,0 +1,26 @@
+{
+	"_comment": "Placeholder encounters, resolved by scripts/systems/combat_resolver.gd. strength/toll/loot are [min, max] and scale up gently with the day count.",
+	"encounters": [
+		{
+			"id": "pirates", "name": "Pirate Sloop", "weight": 5,
+			"text": "A black-sailed sloop cuts across your bow. Its captain grins and raises a cutlass.",
+			"strength": [3, 7], "toll": [60, 160], "loot": [80, 240]
+		},
+		{
+			"id": "serpent", "name": "Sea Serpent", "weight": 2,
+			"text": "The water boils. A scaled neck rises higher than your mast, eyeing your cargo hungrily.",
+			"strength": [6, 10], "toll": [40, 120], "loot": [150, 350],
+			"pay_text": "Toss offerings overboard"
+		},
+		{
+			"id": "smugglers", "name": "Smuggler Cutter", "weight": 3,
+			"text": "A fast cutter flying no colours pulls alongside. They demand a 'fee' for safe passage.",
+			"strength": [2, 5], "toll": [30, 90], "loot": [50, 150]
+		},
+		{
+			"id": "wreckers", "name": "Reef Wreckers", "weight": 2,
+			"text": "False lanterns on the rocks! Longboats full of wreckers row out of the dark.",
+			"strength": [4, 8], "toll": [50, 140], "loot": [100, 260]
+		}
+	]
+}
